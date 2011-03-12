@@ -13,8 +13,11 @@
     </tr>
     <tr>
       <td><%= @scorecard.name %></td>
-      <%- 9.times do |i| -%>
-        <td></td>
+      <%- @scorecard.front_nine.each do |hole| -%>
+        <td>
+          <%= hole.score %>
+          <%= link_to "Edit #{hole.number}", edit_scorecard_hole_path(@scorecard, hole) %>
+        </td>
       <%- end -%>
     </tr>
   </table>
@@ -29,8 +32,11 @@
     </tr>
     <tr>
       <td><%= @scorecard.name %></td>
-      <%- 9.times do |i| -%>
-        <td></td>
+      <%- @scorecard.back_nine.each do |hole| -%>
+      <td>
+        <%= hole.score %>
+        <%= link_to "Edit #{hole.number}", new_scorecard_hole_path(@scorecard, hole) %>
+      </td>
       <%- end -%>
     </tr>
   </table>

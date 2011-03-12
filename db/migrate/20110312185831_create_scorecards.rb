@@ -3,6 +3,7 @@ class CreateScorecards < ActiveRecord::Migration
     create_table :scorecards do |t|
       t.string :name
       t.integer :course_id
+      t.datetime :recorded_on
 
       t.timestamps
     end

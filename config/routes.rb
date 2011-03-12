@@ -1,7 +1,9 @@
 Scramble::Application.routes.draw do
   resources :courses
 
-  resources :scorecards
+  resources :scorecards do
+    resources :holes
+  end
 
   match '/' => 'home#index'
 

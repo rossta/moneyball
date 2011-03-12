@@ -1,0 +1,31 @@
+<h1>Listing holes</h1>
+
+<table>
+  <tr>
+    <th>Scorecard</th>
+    <th>Score</th>
+    <th>Par</th>
+    <th>Yards</th>
+    <th>Course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @holes.each do |hole| %>
+  <tr>
+    <td><%= hole.scorecard_id %></td>
+    <td><%= hole.score %></td>
+    <td><%= hole.par %></td>
+    <td><%= hole.yards %></td>
+    <td><%= hole.course_id %></td>
+    <td><%= link_to 'Show', hole %></td>
+    <td><%= link_to 'Edit', edit_hole_path(hole) %></td>
+    <td><%= link_to 'Destroy', hole, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hole', new_hole_path %>

@@ -1,0 +1,29 @@
+<%= form_for([@scorecard, @hole]) do |f| %>
+  <% if @hole.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hole.errors.count, "error") %> prohibited this hole from being saved:</h2>
+
+      <ul>
+      <% @hole.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :par %><br />
+    <%= f.text_field :par %>
+  </div>
+  <div class="field">
+    <%= f.label :yards %><br />
+    <%= f.text_field :yards %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
