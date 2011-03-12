@@ -1,0 +1,25 @@
+<h1>Listing scorecards</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scorecards.each do |scorecard| %>
+  <tr>
+    <td><%= scorecard.name %></td>
+    <td><%= scorecard.course_id %></td>
+    <td><%= link_to 'Show', scorecard %></td>
+    <td><%= link_to 'Edit', edit_scorecard_path(scorecard) %></td>
+    <td><%= link_to 'Destroy', scorecard, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scorecard', new_scorecard_path %>

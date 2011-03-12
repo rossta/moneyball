@@ -1,0 +1,25 @@
+<%= form_for(@scorecard) do |f| %>
+  <% if @scorecard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scorecard.errors.count, "error") %> prohibited this scorecard from being saved:</h2>
+
+      <ul>
+      <% @scorecard.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :course_id, "Course" %><br />
+    <%= f.select :course_id, Course.all.map {|c| [c.name, c.id] } %>
+  </div>
+  <div class="field">
+    <%= f.label :name, "Team name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Begin" %>
+  </div>
+<% end %>

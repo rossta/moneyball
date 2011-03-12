@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @scorecard.course.name %></h3>
+
+<div id="scorecard">
+  <h5>Front 9</h5>
+  <table>
+    <tr>
+      <th>Team</th>
+      <%- 9.times do |i| -%>
+        <th><%= i + 1 %></th>
+      <%- end -%>
+    </tr>
+    <tr>
+      <td><%= @scorecard.name %></td>
+      <%- 9.times do |i| -%>
+        <td></td>
+      <%- end -%>
+    </tr>
+  </table>
+
+  <h5>Back 9</h5>
+  <table>
+    <tr>
+      <th>Team</th>
+      <%- 9.times do |i| -%>
+        <th><%= i + 10 %></th>
+      <%- end -%>
+    </tr>
+    <tr>
+      <td><%= @scorecard.name %></td>
+      <%- 9.times do |i| -%>
+        <td></td>
+      <%- end -%>
+    </tr>
+  </table>
+</div>
+
+<%= link_to 'Edit', edit_scorecard_path(@scorecard) %> |
+<%= link_to 'Back', scorecards_path %>
