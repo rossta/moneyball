@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scramble</title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="main" class="<%= controller_name %>">
+  <%= yield %>
+</div>
+
+  <%= javascript_include_tag :defaults %>
+</body>
+</html>

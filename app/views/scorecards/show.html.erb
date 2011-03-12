@@ -1,41 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @scorecard.course.name %></h3>
+<h3 class="header"><%= @scorecard.course.name %></h3>
 
-<div id="scorecard">
+<div id="<%= dom_id(@scorecard) %>">
   <h5>Front 9</h5>
-  <table>
+  <table class="scorecard">
     <tr>
-      <th>Team</th>
+      <th class="align_left">Team</th>
       <%- 9.times do |i| -%>
-        <th><%= i + 1 %></th>
+        <th class="hole"><%= i + 1 %></th>
       <%- end -%>
     </tr>
     <tr>
-      <td><%= @scorecard.name %></td>
+      <td class="align_left"><%= @scorecard.name %></td>
       <%- @scorecard.front_nine.each do |hole| -%>
-        <td>
-          <%= hole.score %>
-          <%= link_to "Edit #{hole.number}", edit_scorecard_hole_path(@scorecard, hole) %>
+        <td class="hole align_center">
+          <div>
+            <%= hole.score %>
+          </div>
+          <%= link_to "Edit #{hole.number}", edit_scorecard_hole_path(@scorecard, hole), :class => "hole" %>
         </td>
       <%- end -%>
     </tr>
   </table>
 
   <h5>Back 9</h5>
-  <table>
+  <table class="scorecard">
     <tr>
-      <th>Team</th>
+      <th class="align_left">Team</th>
       <%- 9.times do |i| -%>
-        <th><%= i + 10 %></th>
+        <th class="hole"><%= i + 10 %></th>
       <%- end -%>
     </tr>
     <tr>
-      <td><%= @scorecard.name %></td>
+      <td class="align_left"><%= @scorecard.name %></td>
       <%- @scorecard.back_nine.each do |hole| -%>
-      <td>
-        <%= hole.score %>
-        <%= link_to "Edit #{hole.number}", new_scorecard_hole_path(@scorecard, hole) %>
+      <td class="hole align_center">
+        <div>
+          <%= hole.score %>
+        </div>
+        <%= link_to "Edit #{hole.number}", new_scorecard_hole_path(@scorecard, hole), :class => "hole" %>
       </td>
       <%- end -%>
     </tr>

@@ -1,0 +1,7 @@
+.scorecards .header { margin-bottom: 1em;}
+table.scorecard { width:100%;}
+table.scorecard th,
+table.scorecard td { font-family: 'Helvetica', arial, sans-serif;}
+
+table.scorecard td.hole { width:10%;}
+table.scorecard a.hole { font-size: 80%;}
