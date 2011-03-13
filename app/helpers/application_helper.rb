@@ -11,4 +11,8 @@ module ApplicationHelper
   def resource_name(resource)
     resource.class.name.tableize.singularize
   end
+  
+  def course_select_options
+    Course.all.map {|c| [c.name, c.id] }
+  end
 end

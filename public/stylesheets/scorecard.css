@@ -11,6 +11,10 @@ table.scorecard td {
 table.scorecard th.label,
 table.scorecard td.label {
   width:20%;
+}
+table.scorecard th.title,
+table.scorecard th.label,
+table.scorecard td.label {
   padding: 5px 0 0 5px;
 }
 

@@ -1,10 +1,15 @@
 Scramble::Application.routes.draw do
+
   resources :courses do
     resources :holes
   end
 
   resources :scorecards do
     resources :holes
+  end
+  
+  resources :tournaments do
+    resources :scorecards
   end
 
   root :to => 'home#index'

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="header"><%= @tournament.name %> at <%= @tournament.course.name %></h3>
+
+<h4>Leaderboard</h4>
+
+
+<%= link_to 'New scorecard', new_tournament_scorecard_path(@tournament) %>
+
+<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<%= link_to 'Back', tournaments_path %>

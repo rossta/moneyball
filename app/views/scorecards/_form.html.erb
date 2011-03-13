@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :tournament_id %>
+
   <div class="field">
     <%= f.label :course_id, "Course" %><br />
-    <%= f.select :course_id, Course.all.map {|c| [c.name, c.id] } %>
+    <%= f.select :course_id, course_select_options %>
   </div>
   <div class="field">
     <%= f.label :name, "Team name" %><br />

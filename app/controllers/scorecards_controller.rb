@@ -1,6 +1,7 @@
 class ScorecardsController < ApplicationController
-  # GET /scorecards
-  # GET /scorecards.xml
+
+  before_filter :find_tournament
+
   def index
     @scorecards = Scorecard.all
 
@@ -10,8 +11,6 @@ class ScorecardsController < ApplicationController
     end
   end
 
-  # GET /scorecards/1
-  # GET /scorecards/1.xml
   def show
     @scorecard = Scorecard.find(params[:id])
 
@@ -21,10 +20,10 @@ class ScorecardsController < ApplicationController
     end
   end
 
-  # GET /scorecards/new
-  # GET /scorecards/new.xml
   def new
-    @scorecard = Scorecard.new
+    @scorecard = Scorecard.new do |s|
+      s.tournament = @tournament
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +43,9 @@ class ScorecardsController < ApplicationController
 
     respond_to do |format|
       if @scorecard.save
-        format.html { redirect_to(@scorecard, :notice => 'Welcome to the Bethpage Black.') }
+        notice = "Welcome to the #{@scorecard.course.name}."
+        notice << " Good luck in #{@scorecard.tournament.name}." if @scorecard.tournament.present?
+        format.html { redirect_to(@scorecard, :notice => notice) }
         format.xml  { render :xml => @scorecard, :status => :created, :location => @scorecard }
       else
         format.html { render :action => "new" }
@@ -79,5 +80,11 @@ class ScorecardsController < ApplicationController
       format.html { redirect_to(scorecards_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  protected
+   
+  def find_tournament
+    @tournament = Tournament.find(params[:tournament_id]) if params[:tournament_id]
   end
 end
