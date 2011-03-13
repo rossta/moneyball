@@ -1,0 +1,50 @@
+<tr>
+  <th class="label align_left">Team</th>
+  <%- holes.each do |hole| -%>
+    <th class="hole"><%= hole.number %></th>
+  <%- end -%>
+  <th>Total</th>
+  <th></th>
+</tr>
+<tr>
+  <td class="label align_left"><%= parent.name %></td>
+  <%- holes.each do |hole| -%>
+    <td class="hole score align_center"><%= hole.score %></td>
+  <%- end -%>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="label align_left">Yards</td>
+  <%- holes.each do |hole| -%>
+    <td class="hole yards align_center"><%= hole.yards %></td>
+  <%- end -%>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="label align_left">Handicap</td>
+  <%- holes.each do |hole| -%>
+    <td class="hole handicap align_center"><%= hole.handicap %></td>
+  <%- end -%>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="label align_left">Par</td>
+  <%- holes.each do |hole| -%>
+    <td class="hole par align_center"><%= hole.par %></td>
+  <%- end -%>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <td class="label align_left">&nbsp;</td>
+  <%- holes.each do |hole| -%>
+    <td class="hole edit align_center">
+      <%= link_to "Edit #{hole.number}", polymorphic_edit_hole_path(hole), :class => "hole" %>
+    </td>
+  <%- end -%>
+  <td></td>
+  <td></td>
+</tr>

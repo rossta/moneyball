@@ -1,7 +1,17 @@
 .scorecards .header { margin-bottom: 1em;}
 table.scorecard { width:100%;}
 table.scorecard th,
-table.scorecard td { font-family: 'Helvetica', arial, sans-serif;}
+table.scorecard td {
+  font-family: 'Helvetica', arial, sans-serif;
+  width:7%;
+  border:1px solid #ccc;
+  font-size:85%;
+  padding: 0 5px;
+}
+table.scorecard th.label,
+table.scorecard td.label {
+  width:20%;
+  padding: 5px 0 0 5px;
+}
 
-table.scorecard td.hole { width:10%;}
 table.scorecard a.hole { font-size: 80%;}

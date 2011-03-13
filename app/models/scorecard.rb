@@ -3,7 +3,6 @@ class Scorecard < ActiveRecord::Base
   
   belongs_to :course
   
-  
   def hole_description(hole)
     return "" unless hole.score && hole.par
     diff = hole.score - hole.par
@@ -17,4 +16,14 @@ class Scorecard < ActiveRecord::Base
 
     "You got a #{score_term} on hole #{hole.number}"
   end
+  
+  protected
+  
+  def create_holes
+    course.holes.each do |hole|
+      holes.build(hole.attributes)
+    end
+    save!
+  end
+  
 end
