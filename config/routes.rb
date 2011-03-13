@@ -1,11 +1,13 @@
 Scramble::Application.routes.draw do
-  resources :courses
+  resources :courses do
+    resources :holes
+  end
 
   resources :scorecards do
     resources :holes
   end
 
-  match '/' => 'home#index'
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

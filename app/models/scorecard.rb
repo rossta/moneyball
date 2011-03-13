@@ -1,26 +1,20 @@
 class Scorecard < ActiveRecord::Base
-
+  include Extensions::Holes
+  
   belongs_to :course
-
-  has_many :holes, :dependent => :destroy
-
-  after_create :create_holes
-
-
-  def front_nine
-    holes.where(:number.lt => 10)
-  end
-
-  def back_nine
-    holes.where(:number.gt => 10)
-  end
-
-  protected
-
-  def create_holes
-    18.times do |i|
-      holes.build(:number => i + 1, :course => course)
+  
+  
+  def hole_description(hole)
+    return "" unless hole.score && hole.par
+    diff = hole.score - hole.par
+    score_term = case diff
+    when -2 then "eagle"
+    when -1 then "birdie"
+    when 0 then "par"
+    when 1 then "bogie"
+    when 2 then "double bogie"
     end
-    save!
+
+    "You got a #{score_term} on hole #{hole.number}"
   end
 end

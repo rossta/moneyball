@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110312194118) do
+ActiveRecord::Schema.define(:version => 20110313193509) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -19,18 +19,18 @@ ActiveRecord::Schema.define(:version => 20110312194118) do
   end
 
   create_table "holes", :force => true do |t|
-    t.integer  "scorecard_id"
+    t.integer  "parent_id"
     t.integer  "number"
     t.integer  "score"
     t.integer  "par"
     t.integer  "yards"
-    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "parent_type", :default => "Scorecard"
+    t.integer  "handicap"
   end
 
-  add_index "holes", ["course_id"], :name => "index_holes_on_course_id"
-  add_index "holes", ["scorecard_id"], :name => "index_holes_on_scorecard_id"
+  add_index "holes", ["parent_id"], :name => "index_holes_on_scorecard_id"
 
   create_table "scorecards", :force => true do |t|
     t.string   "name"

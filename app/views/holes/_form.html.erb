@@ -1,4 +1,4 @@
-<%= form_for([@scorecard, @hole]) do |f| %>
+<%= form_for([@parent, @hole]) do |f| %>
   <% if @hole.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hole.errors.count, "error") %> prohibited this hole from being saved:</h2>
@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :par %><br />
-    <%= f.text_field :par %>
+    <%= f.select :par, (3..5).map { |i| [i,i]} %>
+  </div>
+  <div class="field">
+    <%= f.label :handicap %><br />
+    <%= f.select :handicap, (1..18).map { |i| [i,i]} %>
   </div>
   <div class="field">
     <%= f.label :yards %><br />

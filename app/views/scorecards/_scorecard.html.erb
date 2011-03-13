@@ -1,0 +1,43 @@
+<div id="<%= dom_id(parent) %>">
+  <h5>Front 9</h5>
+  <table class="scorecard">
+    <tr>
+      <th class="align_left">Team</th>
+      <%- 9.times do |i| -%>
+        <th class="hole"><%= i + 1 %></th>
+      <%- end -%>
+    </tr>
+    <tr>
+      <td class="align_left"><%= parent.name %></td>
+      <%- parent.front_nine.each do |hole| -%>
+        <td class="hole align_center">
+          <div>
+            <%= hole.score %>
+          </div>
+          <%= link_to "Edit #{hole.number}", polymorphic_edit_hole_path(hole), :class => "hole" %>
+        </td>
+      <%- end -%>
+    </tr>
+  </table>
+
+  <h5>Back 9</h5>
+  <table class="scorecard">
+    <tr>
+      <th class="align_left">Team</th>
+      <%- 9.times do |i| -%>
+        <th class="hole"><%= i + 10 %></th>
+      <%- end -%>
+    </tr>
+    <tr>
+      <td class="align_left"><%= parent.name %></td>
+      <%- parent.back_nine.each do |hole| -%>
+      <td class="hole align_center">
+        <div>
+          <%= hole.score %>
+        </div>
+        <%= link_to "Edit #{hole.number}", polymorphic_edit_hole_path(hole), :class => "hole" %>
+      </td>
+      <%- end -%>
+    </tr>
+  </table>
+</div>

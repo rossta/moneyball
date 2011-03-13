@@ -21,7 +21,7 @@ Feature: Scorecard
     And I go to my scorecard
     And I follow "Edit 1"
     And I fill in "4" for "Score"
-    And I fill in "4" for "Par"
+    And I select "4" from "Par"
     And I press "Save"
     Then I should see "Bethpage Black"
     And I should see "You got a par on hole 1"
