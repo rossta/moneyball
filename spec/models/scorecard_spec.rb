@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Scorecard do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it_should_validate_presence_of :course
+  end
 end

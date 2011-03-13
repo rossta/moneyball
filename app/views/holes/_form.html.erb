@@ -10,11 +10,14 @@
       </ul>
     </div>
   <% end %>
+  
+  <%- if @parent.is_a?(Scorecard) -%>
+    <div class="field">
+      <%= f.label :score %><br />
+      <%= f.text_field :score %>
+    </div>
+  <%- end -%>
 
-  <div class="field">
-    <%= f.label :score %><br />
-    <%= f.text_field :score %>
-  </div>
   <div class="field">
     <%= f.label :par %><br />
     <%= f.select :par, (3..5).map { |i| [i,i]} %>

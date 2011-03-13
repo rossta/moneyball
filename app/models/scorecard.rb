@@ -3,6 +3,8 @@ class Scorecard < ActiveRecord::Base
 
   belongs_to :course
   belongs_to :tournament
+  
+  validates_presence_of :course, :name
 
   def hole_description(hole)
     return "" unless hole.score && hole.par
