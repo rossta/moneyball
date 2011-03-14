@@ -8,4 +8,8 @@ class Course < ActiveRecord::Base
   def hole_description(hole)
     "Hole #{hole.number} is a par #{hole.par} measuring #{hole.yards} yards with handicap #{hole.handicap}"
   end
+  
+  def scoreable?
+    false
+  end
 end

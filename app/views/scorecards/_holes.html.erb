@@ -6,14 +6,16 @@
   <th>Total</th>
   <th></th>
 </tr>
-<tr>
-  <td class="label align_left"><%= parent.name %></td>
-  <%- holes.each do |hole| -%>
-    <td class="hole score align_center"><%= hole.score %></td>
-  <%- end -%>
-  <td></td>
-  <td></td>
-</tr>
+<%- if parent.scoreable? -%>
+  <tr>
+    <td class="label align_left"><%= parent.name %></td>
+    <%- holes.each do |hole| -%>
+      <td class="hole score align_center"><%= hole.score %></td>
+    <%- end -%>
+    <td></td>
+    <td></td>
+  </tr>
+<%- end -%>
 <tr>
   <td class="label align_left">Yards</td>
   <%- holes.each do |hole| -%>

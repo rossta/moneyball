@@ -19,6 +19,10 @@ class Scorecard < ActiveRecord::Base
 
     "You got a #{score_term} on hole #{hole.number}"
   end
+  
+  def scoreable?
+    true
+  end
 
   protected
 

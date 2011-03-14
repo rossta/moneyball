@@ -1,13 +1,27 @@
 <h1>Moneyball</h1>
 
-<%- if @tournaments.any? -%>
-  <h3>Recent tourneys</h3>
-  <%- @tournaments.each do |tourney| -%>
-    <div>
-      <%= link_to tourney.name, tourney %>
-    </div>
-  <%- end -%>
-<%- end -%>
+<div class="table margin_top margin_bottom">
+  <div class="cell padded_right">
+    <%- if @tournaments.any? -%>
+      <h3>Recent tourneys</h3>
+      <%- @tournaments.each do |tourney| -%>
+        <div>
+          <%= link_to tourney.name, tourney %>
+        </div>
+      <%- end -%>
+    <%- end -%>
+  </div>
+  <div class="cell padded_right">
+    <%- if @courses.any? -%>
+      <h3>Recently added courses</h3>
+      <%- @courses.each do |course| -%>
+        <div>
+          <%= link_to course.name, course %>
+        </div>
+      <%- end -%>
+    <%- end -%>
+  </div>
+</div>
 
 
 <%= link_to "Start new tourney", new_tournament_path %>
