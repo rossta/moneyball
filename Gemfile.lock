@@ -1,9 +1,3 @@
-GIT
-  remote: git@github.com:weplay/acts_as_list.git
-  revision: b3be9720725379c47e989f78978e8cc87b99b64b
-  specs:
-    acts_as_list (0.0.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -153,7 +147,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list!
   capybara
   cucumber-rails
   database_cleaner
