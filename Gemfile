@@ -25,8 +25,6 @@ gem "meta_where"
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
-gem "acts_as_list", :git => "git@github.com:weplay/acts_as_list.git"
-
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
