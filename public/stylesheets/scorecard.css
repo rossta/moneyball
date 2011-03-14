@@ -7,6 +7,8 @@ table.scorecard td {
   border:1px solid #ccc;
   font-size:85%;
   padding: 0 5px;
+  vertical-align:middle;
+  text-align:center;
 }
 table.scorecard th.label,
 table.scorecard td.label {
@@ -19,3 +21,16 @@ table.scorecard td.label {
 }
 
 table.scorecard a.hole { font-size: 80%;}
+
+
+table.leaderboard { width:100%;}
+table.leaderboard th,
+table.leaderboard td {
+  font-family: 'Helvetica', arial, sans-serif;
+  width:4%;
+  border:1px solid #ccc;
+  font-size:85%;
+  padding: 0 5px;
+  vertical-align:middle;
+  text-align:center;
+}

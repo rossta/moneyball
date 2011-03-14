@@ -3,10 +3,10 @@
     <tr>
       <th class="title align_left" colspan="12">Front 9</th>
     </tr>
-    <%= render :partial => 'scorecards/holes', :locals => {:parent => parent,:holes => parent.front_nine} %>
+    <%= render :partial => 'scorecards/holes', :locals => {:parent => parent,:holes => parent.holes.front_nine} %>
     <tr>
       <th class="title align_left" colspan="12">Back 9</th>
     </tr>
-    <%= render :partial => 'scorecards/holes', :locals => {:parent => parent,:holes => parent.back_nine} %>
+    <%= render :partial => 'scorecards/holes', :locals => {:parent => parent,:holes => parent.holes.back_nine} %>
   </table>
 </div>

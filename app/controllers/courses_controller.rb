@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.xml
   def show
-    @course = Course.find(params[:id])
+    @course = Course.includes(:holes).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

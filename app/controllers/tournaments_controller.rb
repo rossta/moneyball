@@ -13,7 +13,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1
   # GET /tournaments/1.xml
   def show
-    @tournament = Tournament.find(params[:id])
+    @tournament = Tournament.includes(:course => :holes, :scorecards => :holes).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

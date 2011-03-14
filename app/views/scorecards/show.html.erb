@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h3 class="header"><%= @scorecard.course.name %></h3>
+<h3 class="header"><%= link_to @scorecard.course.name, @scorecard.course %></h3>
 
 <%= render :partial => @scorecard, :as => :parent %>
 
+<%= link_to 'Leaderboard', @scorecard.tournament if @scorecard.tournament.present? %>
 <%= link_to 'Edit', edit_scorecard_path(@scorecard) %> |
 <%= link_to 'Back', scorecards_path %>
