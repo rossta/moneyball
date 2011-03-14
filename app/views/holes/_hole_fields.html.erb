@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td></td>
+    <td>Par</td>
+    <td>Handicap</td>
+    <td>Yards</td>
+  </tr>
+  <%- f.fields_for :holes, f.object.holes do |h| -%>
+  <tr>
+    <td><%= h.object.number %></td>
+    <td><%= h.select :par, (3..5).map { |i| [i,i] }, :selected => 4 %></td>
+    <td><%= h.select :handicap, (1..18).map { |i| [i,i] } %></td>
+    <td><%= h.text_field :yards, :style => "width:100px" %></td>
+  </tr>
+  <%- end -%>
+</table>

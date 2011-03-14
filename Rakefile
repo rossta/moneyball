@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Scramble::Application.load_tasks
+Moneyball::Application.load_tasks

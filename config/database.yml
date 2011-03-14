@@ -11,7 +11,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: scramble_development
+  database: moneyball_development
   pool: 5
   username: admin
   password:
@@ -37,7 +37,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: scramble_test
+  database: moneyball_test
   pool: 5
   username: admin
   password:
@@ -45,7 +45,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: scramble_production
+  database: moneyball_production
   pool: 5
   username: admin
   password:

@@ -23,6 +23,8 @@ module Extensions
 
       base.has_many :holes, :as => :parent, :dependent => :destroy, :order => :number
 
+      base.accepts_nested_attributes_for :holes
+
       base.after_create :create_holes
     end
   end

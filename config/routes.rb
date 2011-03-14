@@ -1,4 +1,4 @@
-Scramble::Application.routes.draw do
+Moneyball::Application.routes.draw do
 
   resources :courses do
     resources :holes
