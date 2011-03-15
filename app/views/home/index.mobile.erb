@@ -1,0 +1,24 @@
+<% title %>
+
+<h2>Recent tourneys</h2>
+<ul>
+  <%- @tournaments.each do |tourney| -%>
+    <li class="arrow">
+      <%= link_to tourney.name, tourney %>
+      <small class="counter"><%= tourney.scorecards.size %></small>
+    </li>
+  <%- end -%>
+</ul>
+<h2>Recent courses</h2>
+<ul>
+  <%- @courses.each do |course| -%>
+    <li class="arrow">
+      <%= link_to course.name, course %>
+    </li>
+  <%- end -%>
+</ul>
+
+<ul>
+  <li class="arrow"><%= link_to "New tourney", new_tournament_path %></li>
+  <li class="arrow"><%= link_to "New course", new_course_path %></li>
+</ul>

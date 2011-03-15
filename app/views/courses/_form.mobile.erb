@@ -1,0 +1,27 @@
+<%= form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <ul class="rounded">
+    <li>
+      <%= f.label :name, "Name", :display => "none" %>
+      <%= f.text_field :name, :placeholder => "Course name" %>
+    </li>
+    <li>
+      <%= render :partial => 'holes/hole_fields', :locals => { :f => f } %>
+    </li>
+  </ul>
+
+  <%= link_to "Save", nil, :class => "whiteButton submit" %>
+
+<% end %>

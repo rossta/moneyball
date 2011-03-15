@@ -1,0 +1,24 @@
+<%= form_for(@scorecard) do |f| %>
+  <% if @scorecard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scorecard.errors.count, "error") %> prohibited this scorecard from being saved:</h2>
+
+      <ul>
+      <% @scorecard.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :tournament_id %>
+
+  <ul class="rounded">
+    <li>
+      <%= f.label :name, "Name", :display => "none" %>
+      <%= f.text_field :name, :placeholder "Team name" %>
+    </li>
+    <li><%= f.select :course_id, course_select_options, :title => "Course" %></li>
+  </ul>
+  <%= link_to "Begin", nil, :class => "whiteButton submit" %>
+<% end %>

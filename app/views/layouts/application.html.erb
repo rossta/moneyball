@@ -2,10 +2,18 @@
 <html>
 <head>
   <title>Moneyball</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag :all, :except => "mobile.css" %>
+  <%= stylesheet_link_tag "mobile.css" if mobile_device? %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="header">
+  <%- if mobile_device? -%>
+    <%= link_to 'Full site', :mobile => 0 %>
+  <%- else -%>
+    <%= link_to 'Mobile site', :mobile => 1 %>
+  <%- end -%>
+</div>
 <div id="main" class="<%= controller_name %>">
   <%= yield %>
 </div>
