@@ -11,8 +11,11 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
-    when /^my scorecard$/i
+    when /^(?:my|the) scorecard$/i
       scorecard_path(Scorecard.last)
+
+    when /^the tournament page$/i
+      tournament_path(Tournament.last)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -1,13 +1,18 @@
 Moneyball::Application.routes.draw do
 
   resources :courses do
-    resources :holes
+    resources :holes,     :except => :index
   end
 
   resources :scorecards do
-    resources :holes
+    resources :holes,     :except => :index
+    resources :entries,   :except => [:index, :show]
   end
-  
+
+  resources :entries,     :except => [:index, :show] do
+    resources :holes,     :except => :index
+  end
+
   resources :tournaments do
     resources :scorecards
   end

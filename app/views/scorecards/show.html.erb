@@ -4,6 +4,6 @@
 
 <%= render :partial => @scorecard, :as => :parent %>
 
-<%= link_to 'Leaderboard', @scorecard.tournament if @scorecard.tournament.present? %>
+<%= link_to 'Leaderboard', @scorecard.tournament if @scorecard.tournament.present? %> |
 <%= link_to 'Edit', edit_scorecard_path(@scorecard) %> |
 <%= link_to 'Back', scorecards_path %>

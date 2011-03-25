@@ -1,3 +1,4 @@
+<%- holes = parent.holes.send("#{side}_nine") -%>
 <tr>
   <th class="label align_left">Team</th>
   <%- holes.each do |hole| -%>
@@ -15,6 +16,16 @@
     <td></td>
     <td></td>
   </tr>
+  <%- parent.entries.each do |entry| -%>
+    <tr>
+      <td class="label align_left"><%= entry.name %></td>
+      <%- entry.holes.send("#{side}_nine").each do |hole| -%>
+        <td class="hole score align_center"><%= hole.score %></td>
+      <%- end -%>
+      <td></td>
+      <td></td>
+    </tr>
+  <%- end -%>
 <%- end -%>
 <tr>
   <td class="label align_left">Yards</td>

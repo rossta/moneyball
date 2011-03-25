@@ -1,9 +1,12 @@
 class Scorecard < ActiveRecord::Base
   include Extensions::Holes
 
-  belongs_to :course
-  belongs_to :tournament
-  
+  belongs_to  :course
+  belongs_to  :tournament
+  has_many    :entries
+
+  accepts_nested_attributes_for :entries, :allow_destroy => true
+
   validates_presence_of :course, :name
 
   def hole_description(hole)
@@ -19,7 +22,7 @@ class Scorecard < ActiveRecord::Base
 
     "You got a #{score_term} on hole #{hole.number}"
   end
-  
+
   def scoreable?
     true
   end

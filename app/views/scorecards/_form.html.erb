@@ -21,6 +21,14 @@
     <%= f.label :name, "Team name" %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <p>Entries</p>
+  <%= f.fields_for :entries do |e| %>
+    <div class="field">
+      <%= e.label :name, e.object.position %>
+      <%= e.text_field :name %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Begin" %>
   </div>

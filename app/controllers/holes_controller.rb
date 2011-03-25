@@ -1,10 +1,6 @@
 class HolesController < ApplicationController
   before_filter :find_parent
   
-  def index
-    @holes = Hole.all
-  end
-
   def show
     @hole = Hole.find(params[:id])
   end

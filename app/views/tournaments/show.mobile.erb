@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h3 class="header"><%= @tournament.name %> at <%= @tournament.course.name %></h3>
+
+<h4>Leaderboard</h4>
+
+<table class="leaderboard">
+  <tr>
+    <th></th>
+    <%- @tournament.course.holes.front_nine.each do |hole|-%>
+      <th><%= hole.number %></th>
+    <%- end -%>
+    <th></th>
+    <%- @tournament.course.holes.back_nine.each do |hole|-%>
+      <th><%= hole.number %></th>
+    <%- end -%>
+    <th></th>
+  </tr>
+  <tr>
+    <th></th>
+    <%- @tournament.course.holes.front_nine.each do |hole|-%>
+      <th><%= hole.par %></th>
+    <%- end -%>
+    <th></th>
+    <%- @tournament.course.holes.back_nine.each do |hole|-%>
+      <th><%= hole.par %></th>
+    <%- end -%>
+    <th></th>
+  </tr>
+  <%- @tournament.scorecards.each do |scorecard| -%>
+    <tr>
+      <td><%= link_to scorecard.name, scorecard %></td>
+      <%- scorecard.holes.front_nine.each do |hole| -%>
+      <td><%= hole.score %></td>
+      <%- end -%>
+      <td></td>
+      <%- scorecard.holes.back_nine.each do |hole| -%>
+      <td><%= hole.score %></td>
+      <%- end -%>
+      <td></td>
+    </tr>
+  <%- end -%>
+</table>
+
+<%= link_to 'New scorecard', new_tournament_scorecard_path(@tournament) %>
+
+<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+<%= link_to 'Back', tournaments_path %>
